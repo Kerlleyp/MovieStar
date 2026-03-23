@@ -1,8 +1,16 @@
 <?php
     include_once("globals.php");
     include_once("db.php");
+    INCLUDE_ONCE("models/message.php");
 
-    $flassMessage = [];
+    $message = new Message($BASE_URL);
+    $flassMessage = $message->getMessage();
+
+    if(!empty($flassMessage["msg"])) {
+        //limpar Mensagem
+        $message->clearMessage();
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,6 +53,6 @@
     </header>
     <?php if(!empty($flassMessage["msg"])): ?>
         <div class="msg-container">
-            <p class="msg" <?= $flassMessage["type"] ?>><?= $flassMessage["msg"] ?></p>
+            <p class="msg <?= $flassMessage["type"] ?>"><?= $flassMessage["msg"] ?></p>
         </div>
     <?php endif; ?>
