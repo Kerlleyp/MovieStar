@@ -3,6 +3,7 @@
     position: relative;
 }
 
+
 #log {
     width: 50px;
 }
@@ -20,10 +21,13 @@
 }
 
 #search-form {
-    margin: 0 auto;
     background-color: #fff;
-    border-radius: 5px;
-    width: 50%;
+    border-radius: 5px; 
+    width: 100%;        
+    margin: 0 auto;     
+    display: flex;
+    align-items: center;
+    padding: 5px 10px; 
     margin-left: 180px;
 }
 
@@ -198,7 +202,8 @@
 }
 
 /* Edit Profile*/
-#profile-image-container {
+#profile-image-container,
+.profile-image-container {
     width: 150px;
     height: 150px;
     border: 6px solid #f5c518;
@@ -206,6 +211,11 @@
     background-size: cover;
     background-position: center;
     margin: 15px auto;
+}
+
+.profile-image-container {
+    width: 70px;
+    height: 70px;
 }
 
 .page-description {
@@ -221,8 +231,51 @@
 }
 
 .edit-profile-page .card-btn,
-#add-movie-container .card-btn{
+#add-movie-container .card-btn,
+#review-form .card-btn,
+#edit-movie-form .card-btn {
     width: auto;
+}
+
+/* Profile */
+.profile-container {
+    justify-content: center;
+}
+
+.profile-container .profile-image {
+    margin: 20px auto;
+}
+
+.about-title {
+    color: #ccc;
+}
+
+.profile-description {
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.added-movies-container,
+.about-container {
+    padding-top: 20px;
+}
+
+.about-container {
+    text-align: center;
+    background-color: #333;
+    border-bottom: 3px solid #ccc;
+}
+
+.added-movies-container {
+    background-color: #333;
+}
+
+.added-movies-container .movies-container {
+    padding: 20px;
+}
+
+.added-movies-container .movie-card {
+    width: 30%;
 }
 
 /* NEW MOVIE */
@@ -250,6 +303,131 @@
     padding-top: 7px;
 }
 
+/* MOVIE */
+.movie-container {
+    text-align: center;
+}
+
+.movie-details {
+    margin: 25px 0;
+}
+
+.pipe {
+    border: 1px solid #333;
+    margin: 0 10px;
+}
+
+#reviews-title {
+    margin-bottom: 25px;
+}
+
+#review-form-container {
+    background-color: #333;
+    padding: 20px;
+}
+
+#review-form-container select,
+#review-form-container textarea {
+    width: 50%;
+}
+
+#reviews-container {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 4px solid #f5c518;
+}
+
+.review {
+    padding: 20px 0;
+    border-bottom: 1px solid #333;
+}
+
+.author-details-container {
+    padding-top: 20px;
+}
+
+.author-name a {
+    color: #f5c518;
+}
+
+.comment-title {
+    color: #999;
+}
+
+/* DASHBOARD */
+
+#add-movie-container {
+    text-align: right;
+}
+
+#movies-dashboard .table {
+    color: #fff;
+}
+#movies-dashboard .table td,
+#movies-dashboard .table th {
+    background-color: #000;
+    border-color: #fff; 
+    color: #fff;
+}
+
+#movies-dashboard .table th {
+    border-top: none;
+}
+
+#movies-dashboard .table tr {
+    padding: 15px 0;
+}
+
+.table-movie-title {
+    color: #fff;
+    font-weight: bold;
+    transition: .5s;
+}
+
+.table-movie-title:hover {
+    color: #f5c518;
+}
+
+.actions-column {
+    max-width: 75px;
+    text-align: center;
+}
+
+.actions-column form {
+    display: inline-block;
+}
+
+.edit-btn,
+.delete-btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 0 5px;
+    font-weight: bold;
+    transition: .5s;
+    border: none;
+}
+
+.edit-btn {
+    background-color: #0dcaf0;
+    color: #fff;
+}
+
+.edit-btn:hover {
+    background-color: transparent;
+    color: #0dcaf0;
+    text-decoration: none;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.delete-btn:hover {
+    background-color: transparent;
+    color: #dc3545;
+    text-decoration: none;
+}
 /* FOOTER */
 
 #footer {

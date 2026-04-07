@@ -14,7 +14,7 @@
         <p class="section-description">Veja as críticas dos ultimos filmes adicionados no MovieStar</p>
         <div class="movies-container">
             <?php foreach($latestMovies as $movie): ?>
-                <?php require("templates/movie-card.php"); ?>
+                <?php require("templates/movie_card.php"); ?>
             <?php endforeach; ?>
             <?php if(count($latestMovies) === 0): ?>
                 <p class="empty-list">Ainda não há filmes cadastrados!</p>

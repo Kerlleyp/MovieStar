@@ -22,6 +22,7 @@
         public function getLatestMovies();
         public function getMoviesByCategory($category);
         public function getMoviesByUserId($id);
+        public function findById($id);
         public function findByTitle($title);
         public function create( $movie);
         public function update(Movie $movie);
