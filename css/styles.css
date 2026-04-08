@@ -428,6 +428,16 @@
     color: #dc3545;
     text-decoration: none;
 }
+
+/* SEARCH */
+#search-title {
+  font-size: 40px;
+}
+
+#search-result,
+.back-link {
+  color: #f5c518;
+}
 /* FOOTER */
 
 #footer {

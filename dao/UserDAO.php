@@ -115,32 +115,29 @@
 
         public function authenticateUser($email, $password){
 
-            $user = $this->findByEmail($email);
+           $user = $this->findByEmail($email);
 
             if($user) {
 
-                //Checar se as senhas batem
+                // Verifica senha
                 if(password_verify($password, $user->password)) {
 
-                    //Gerar um token e inserir na session
+                    // Gera novo token
                     $token = $user->generateToken();
-
-                    $this->setTokenSession($token, false);
-
-                    //Atualizar token no usuario
                     $user->token = $token;
+
+                    // Atualiza token no banco
                     $this->update($user, false);
 
+                    // Salva token na session
+                    $this->setTokenSession($token, false);
+
                     return true;
-
-
-                } else {
-                    return false;
                 }
-
-            } else {
-                return false;
             }
+
+    return false;
+            
         }
 
         public function findByEmail($email){
@@ -166,6 +163,25 @@
         }
 
         public function findById($id){
+
+            if($id != "") {
+                $stmt = $this->conn->prepare("SELECT * FROM users WHERE id = :id");
+
+                $stmt->bindParam(":id", $id);
+
+                $stmt->execute();
+
+                if($stmt->rowCount() > 0) {
+
+                    $data = $stmt->fetch();
+                    $user = $this->buildUser($data);
+
+                    return $user;
+
+                } else {
+                    return false;
+                }
+            }
 
         }
 

@@ -33,7 +33,8 @@
     <link rel="stylesheet" href="<?= $BASE_URL ?>css/styles.css">
 </head>
 <body>
-    <header>
+    <div id="app">
+        <header>
         <nav id="main-navbar" class="navbar navbar-expand-lg">
             <a href="<?= $BASE_URL ?>" class="navbar-brand">
                 <img src="<?= $BASE_URL ?>img/logo.svg" alt="MovieStar" id="log">
@@ -42,7 +43,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Togglenavigation">
                 <i class="fas fa-bars"></i>
             </button>
-            <form action="" method="get" id="search-form" class="form-inline my-2 my-lg-0">
+            <form action="<?= $BASE_URL ?>search.php" method="get" id="search-form" class="form-inline my-2 my-lg-0">
                 <input type="text" name="q" id="search" class="form-control mr-sm-2" type="search" placeholder="Buscar Filmes" aria-label="Search">
                 <button class="btn my-2 my-sm-0" type="submit">
                     <i class="fas fa-search"></i>
@@ -72,6 +73,8 @@
             </div>
         </nav>
     </header>
+    </div>
+</body>
     <?php if(!empty($flassMessage["msg"])): ?>
         <div class="msg-container">
             <p class="msg <?= $flassMessage["type"] ?>"><?= $flassMessage["msg"] ?></p>

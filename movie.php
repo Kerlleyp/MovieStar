@@ -42,13 +42,14 @@
         if($userData->id === $movie->users_id) {
             $userOwnsMovie = true;
         }
+
+        //Resgatar as revies do filme
+        $alreadyReviewed = $reviewDao->hasAlreadyReviewed($id, $userData->id);
+
     }
 
     //Resgatar as review do filme
     $movieReviews = $reviewDao->getMoviesReview($id);
-
-    //Resgatar as revies do filme
-    $alreadyReviewed = false;
 
 ?>
 
@@ -61,7 +62,7 @@
                 <span class="pipe"></span>
                 <span><?= $movie->category ?></span>
                 <span class="pipe"></span>
-                <p><i class="fas fa-star"></i>9</p>
+                <p><i class="fas fa-star"></i><?= $movie->rating ?></p>
             </p>
             <iframe src="<?= $movie->trailer ?>" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encryted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <p><?= $movie->description ?></p>
@@ -72,7 +73,7 @@
         <div class="offset-md-1 col-md-10" id="reviews-container">
             <h3 id="reviews-title">Avaliações:</h3>
             <!--Verifica se habilida a review para o usúrio ou não -->
-            <?php if(!empty($userData) || !$userOwnsMovie || !$alreadyReviewed): ?>
+            <?php if(!empty($userData) && !$userOwnsMovie && !$alreadyReviewed): ?>
             <div class="col-md-12" id="review-form-container">
                 <h4>Envie sua avaliação</h4>
                 <p class="page-description">Preencha o formulário com a nota e comentario sobre o filme</p>
